@@ -61,6 +61,16 @@ class ControllerConsole
             // nombre de clase
             $class = Util::camelcase($controller_name);
 
+            // determina la clase padre del controlador
+            $type = $params['parent'] ?? 'app';
+            $parent = match($type) {
+                'app'      => 'AppController',
+                'admin'    => 'AdminController',
+                'rest'     => 'RestController',
+                'scaffold' => 'ScaffoldController',
+                default    => $type,
+            };
+
             // codigo de controlador
             ob_start();
             include __DIR__ . '/generators/controller.php';

@@ -55,6 +55,13 @@ class ModelConsole
             // nombre de clase
             $class = Util::camelcase($model_name);
 
+            // determina la clase padre del modelo
+            $parentValue = $params['parent'] ?? 'ActiveRecord';
+            $parent = match($parentValue) {
+                'plain'  => '',
+                default  => $parentValue,
+            };
+
             // codigo de modelo
             ob_start();
             include __DIR__.'/generators/model.php';
