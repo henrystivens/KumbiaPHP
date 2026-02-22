@@ -8,9 +8,9 @@
  * with this package in the file LICENSE.
  *
  * @category   Kumbia
- * @package    Security
+ * @package    Registry
  *
- * @copyright  Copyright (c) 2005 - 2023 KumbiaPHP Team (http://www.kumbiaphp.com)
+ * @copyright  Copyright (c) 2005 - 2026 KumbiaPHP Team (http://www.kumbiaphp.com)
  * @license    https://github.com/KumbiaPHP/KumbiaPHP/blob/master/LICENSE   New BSD License
  */
 
@@ -21,7 +21,7 @@
  * patrón de diseño Registry
  *
  * @category   Kumbia
- * @package    Security
+ * @package    Registry
  *
  */
 class Registry
