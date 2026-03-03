@@ -8,6 +8,7 @@
   <?= Html::includeCss() ?>
 </head>
 <body>
+<a href="#main" class="skip-link">Saltar al contenido</a>
 <div class="container">
   <header class="row">
       <div class="col-8">
@@ -17,7 +18,9 @@
           App: <strong><?= basename(dirname(APP_PATH)) ?></strong> (<?= PRODUCTION ? 'Production' : 'Development' ?>)
       </div>
   </header>
+  <main id="main">
   <?php View::content() ?>
+  </main>
   <?php View::partial('kumbia/footer') ?>
 </div>
 </body>

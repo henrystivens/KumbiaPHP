@@ -179,6 +179,8 @@ border-top: dotted 1px grey; padding-top: 1em; margin: .5em 0 0;
 label, input, textarea, select{
    display: block;
 }
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:100}
+.skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:10px 15px;background:#0ac;color:#fff;border-radius:4px;text-decoration:none;font-weight:bold}
 footer{
-    padding-top: 1em; margin-top:2em; border-top: 1px solid #ccc; 
+    padding-top: 1em; margin-top:2em; border-top: 1px solid #ccc;
 }
