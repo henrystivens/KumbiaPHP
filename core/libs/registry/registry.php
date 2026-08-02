@@ -30,7 +30,7 @@ class Registry
     /**
      * Variable donde se guarda el registro
      *
-     * @var array
+     * @var array<string, mixed>
      */
     private static $registry = [];
 
@@ -38,18 +38,18 @@ class Registry
      * Establece un valor del registro
      *
      * @param string $index
-     * @param string $value
+     * @param mixed  $value
      */
     public static function set($index, $value)
     {
-        self::$registry[$index] = [$value];
+        self::$registry[$index] = $value;
     }
 
     /**
      * Agrega un valor al registro a uno ya establecido
      *
      * @param string $index
-     * @param string $value
+     * @param mixed  $value
      */
     public static function append($index, $value)
     {
@@ -61,7 +61,7 @@ class Registry
      * Agrega un valor al registro al inicio de uno ya establecido
      *
      * @param string $index
-     * @param string $value
+     * @param mixed  $value
      */
     public static function prepend($index, $value)
     {
@@ -81,14 +81,16 @@ class Registry
     }
 
     /**
-     * Crea un index si no existe
+     * Asegura que el índice contenga un array para agregar valores
      *
      * @param string $index
      */
     protected static function exist($index)
     {
-        if (!isset(self::$registry[$index])) {
-            self::$registry[$index] = array();
+        if (!array_key_exists($index, self::$registry)) {
+            self::$registry[$index] = [];
+        } elseif (!is_array(self::$registry[$index])) {
+            self::$registry[$index] = [self::$registry[$index]];
         }
     }
 }
